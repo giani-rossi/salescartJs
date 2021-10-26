@@ -25,6 +25,64 @@
                 </div>
               </div>
     </template>
+
+<section id="tables">
+
+
+  <table class="table">
+ 
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Item</th>
+        <th scope="col">Cantidad</th>
+        <th scope="col">Acción</th>
+        <th scope="col">Total</th>
+      </tr>
+    </thead>
+    
+    <tbody id="items"></tbody>
+    
+    <tfoot>
+      <tr id="footer">
+        <th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>
+      </tr>
+    </tfoot>
+  </table>
+  
+<!--templates generados para informacion interna-->
+
+  <template id="templateSalescart">
+    <tr>
+      <th scope="row" id="idTable">id</th>
+      <td id="productTable">Café</td>
+      <td id="qtyTable" >1</td>
+      <td>
+          <button class="btn btn-info btn-sm">
+              +
+          </button>
+          <button class="btn btn-danger btn-sm">
+              -
+          </button>
+      </td>
+      <td id="totalTable">$ <span>500</span></td>
+    </tr>
+  </template>
+
+
+  <template id="templateFooter">
+    <th  scope="row" colspan="2">Total productos</th>
+    <td id="totalQty" >10</td>
+    <td>
+        <button class="btn btnDeleteAll btn-sm" id="salescartEmpty">
+            vaciar todo
+        </button>
+    </td>
+    <td id="totalPrice" class="font-weight-bold">$ <span>5000</span></td>
+</template>
+
+
+
     
 </section>
 
