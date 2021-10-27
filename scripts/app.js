@@ -107,7 +107,7 @@ const addSalescart = () => {
     
      //RBlakcby - Agregar el id al botón con btnPlus
       $templateSalescart.querySelector(".btnPlus").dataset.id = product.id;
-    
+      $templateSalescart.querySelector(".btnMinus").dataset.id = product.id;
     
     const clone = $templateSalescart.cloneNode(true);
     $fragment.appendChild(clone);
