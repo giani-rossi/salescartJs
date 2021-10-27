@@ -1,5 +1,13 @@
 window.addEventListener("DOMContentLoaded", () => {
   fetchData();
+
+  $cards.addEventListener("click", (e) => {
+    addProduct(e);
+  });
+
+  $items.addEventListener("click", (e) => {
+    btnAumentarDisminuir(e);
+  });
 });
 
 const $cards = document.getElementById("allCards");
@@ -56,15 +64,12 @@ $items.appendChild(createImage)
   $cards.appendChild($fragment);
 };
 
-$cards.addEventListener("click", (e) => {
-  addProduct(e);
-});
-
 const addProduct = (e) => {
   //console.log(e.target); // identifico los elementos del DOM que clickeo
   //console.log(e.target.parentElement); //identifico el parent del elemento q clickeo en el DOM
   //console.log(e.target.classList.contains('btnBuy')); me devuelve true or false
   const btnBuy = e.target.classList.contains("btnBuy");
+  console.log(btnBuy);
   if (btnBuy === true) {
     setSalescart(e.target.parentElement);
   }
@@ -77,7 +82,6 @@ const setSalescart = (object) => {
     title: object.querySelector("h5").textContent,
     price: object.querySelector("p").textContent,
     qty: 1,
-
   };
   //console.log(product.id);
   //console.log(product);
@@ -85,52 +89,96 @@ const setSalescart = (object) => {
     product.qty = salesCart[product.id].qty + 1; //sumo los elementos cada vez que clickeo en el mismo
   }
 
-  salesCart[product.id] = { ...product }; //agrego los elementos al carrito, pusheo los productos al cart
+  salesCart[product.id] = { ...product }; //agrego los elementos al carrito, pusheo los products al cart
 
-  //console.log(salesCart);
+  console.log(salesCart);
   addSalescart();
 };
 
 const addSalescart = () => {
-    $items.innerText = '';
+  $items.innerText = "";
   Object.values(salesCart).forEach((product) => {
-    $templateSalescart.querySelector("#idTable").textContent = '';
+    $templateSalescart.querySelector("#idTable").textContent = "";
     $templateSalescart.querySelector("#productTable").textContent =
       product.title;
     $templateSalescart.querySelector("#qtyTable").textContent = product.qty;
-    $templateSalescart.querySelector('#totalTable').textContent = product.qty*product.price
+    $templateSalescart.querySelector("#totalTable").textContent =
+      product.qty * product.price;
     const clone = $templateSalescart.cloneNode(true);
     $fragment.appendChild(clone);
   });
+
   $items.appendChild($fragment);
   setFooter();
 };
 
-const setFooter = ()=> {
-$footer.innerText = ''
-if(Object.keys(salesCart).length === 0) {
-    $footer.innerText = '<th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>'
-}
 
-const totalQty = Object.values(salesCart).reduce((acc, {qty}) => acc + qty , 0 )
-const totalPrice = Object.values(salesCart).reduce((acc, {qty , price}) => acc + qty*price , 0)
-$templateFooter.querySelector('#totalQty').textContent = totalQty;
-$templateFooter.querySelector('#totalPrice').textContent = totalPrice;
-$templateFooter.querySelector('#salescartEmpty').addEventListener('click' , () => {
-    salesCart = {}
-    $footer.innerText = '<th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>'
-addSalescart();
+let contador = 0;
 
-})
+const btnAumentarDisminuir = (e) => {
+  console.log(e.target);
+  const button = e.target.classList.contains('btnPlus')
+  if(button === true) {
+    console.log(salesCart[e.target.dataset.id]);
+  }
+};
 
 
 
-const clone = $templateFooter.cloneNode(true)
-$fragment.appendChild(clone)
-$footer.appendChild($fragment)
 
+const setFooter = () => {
+  $footer.innerText = "";
+  if (Object.keys(salesCart).length === 0) {
+    $footer.innerText =
+      '<th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>';
+    return;
+  }
 
-}
+  const totalQty = Object.values(salesCart).reduce(
+    (acc, { qty }) => acc + qty,
+    0
+  );
+  const totalPrice = Object.values(salesCart).reduce(
+    (acc, { qty, price }) => acc + qty * price,
+    0
+  );
+  $templateFooter.querySelector("#totalQty").textContent = totalQty;
 
+  $templateFooter.querySelector("#totalPrice").textContent = totalPrice;
 
+  const clone = $templateFooter.cloneNode(true);
+  $fragment.appendChild(clone);
+  $footer.appendChild($fragment);
 
+  const boton = document.querySelector("#salescartEmpty");
+
+  boton.addEventListener("click", () => {
+    salesCart = {};
+
+    addSalescart();
+    $footer.innerText = "";
+  });
+};
+
+/*
+const btnAumentarDisminuir = e => {
+  // console.log(e.target.classList.contains('btn-info'))
+  if (e.target.classList.contains('btnPlus') === true) {
+      const object = salesCart[e.target.dataset]
+     console.log((object));
+       // product.qty++
+    //  salesCart[e.target.dataset.id] = { ...product }
+      addSalescart()
+  }
+/*
+  if (e.target.classList.contains('btnMinus')) {
+      const product = salesCart[e.target.dataset.id]
+     product.qty = salesCart[e.target.dataset.id].qty + 1
+      if (product.cantidad === 0) {
+          delete salesCart[e.target.dataset.id]
+      } else {
+          salesCart[e.target.dataset.id] = {...product}
+      }
+      addSalescart()
+  }
+  e.stopPropagation() */
