@@ -91,7 +91,7 @@ const setSalescart = (object) => {
 
   salesCart[product.id] = { ...product }; //agrego los elementos al carrito, pusheo los products al cart
 
-  console.log(salesCart);
+  //console.log(salesCart);
   addSalescart();
 };
 
@@ -104,6 +104,10 @@ const addSalescart = () => {
     $templateSalescart.querySelector("#qtyTable").textContent = product.qty;
     $templateSalescart.querySelector("#totalTable").textContent =
       product.qty * product.price;
+    $templateSalescart.querySelector(".btnPlus").dataset.id = product.id;
+
+    $templateSalescart.querySelector(".btnMinus").dataset.id = product.id;
+
     const clone = $templateSalescart.cloneNode(true);
     $fragment.appendChild(clone);
   });
@@ -111,18 +115,6 @@ const addSalescart = () => {
   $items.appendChild($fragment);
   setFooter();
 };
-
-
-let contador = 0;
-
-const btnAumentarDisminuir = (e) => {
-  console.log(e.target);
-  const button = e.target.classList.contains('btnPlus')
-  if(button === true) {
-    console.log(salesCart[e.target.dataset.id]);
-  }
-};
-
 
 
 
@@ -160,25 +152,25 @@ const setFooter = () => {
   });
 };
 
-/*
-const btnAumentarDisminuir = e => {
-  // console.log(e.target.classList.contains('btn-info'))
-  if (e.target.classList.contains('btnPlus') === true) {
-      const object = salesCart[e.target.dataset]
-     console.log((object));
-       // product.qty++
-    //  salesCart[e.target.dataset.id] = { ...product }
-      addSalescart()
+
+const btnAumentarDisminuir = (e) => {
+  //console.log(e.target);
+  const buttonPlus = e.target.classList.contains("btnPlus");
+  if (buttonPlus === true) {
+    
+const add = salesCart[e.target.dataset.id] ;
+add.qty++
+salesCart[e.target.dataset.id] = { ...add }
+addSalescart()
+}
+  
+
+  const buttonMinus = e.target.classList.contains("btnMinus");
+  if (buttonMinus === true) {
+    //console.log(e.target.dataset.id);
+    const sub = salesCart[e.target.dataset.id] ;
+sub.qty--
+salesCart[e.target.dataset.id] = { ...sub }
+addSalescart()
   }
-/*
-  if (e.target.classList.contains('btnMinus')) {
-      const product = salesCart[e.target.dataset.id]
-     product.qty = salesCart[e.target.dataset.id].qty + 1
-      if (product.cantidad === 0) {
-          delete salesCart[e.target.dataset.id]
-      } else {
-          salesCart[e.target.dataset.id] = {...product}
-      }
-      addSalescart()
-  }
-  e.stopPropagation() */
+};
