@@ -22,7 +22,7 @@ const $templateSalescart = document.getElementById("templateSalescart").content;
 const $templateFooter = document.getElementById("templateFooter").content;
 const $footer = document.getElementById("footer");
 
-//TOMO LOS DATOS DE LA BASE DE DATOS
+//TOMO LOS DATOS DE LA "BASE DE DATOS(JSON)"
 
 const fetchData = async () => {
   try {
@@ -104,6 +104,8 @@ const addSalescart = () => {
     $templateSalescart.querySelector("#qtyTable").textContent = product.qty;
     $templateSalescart.querySelector("#totalTable").textContent =
       product.qty * product.price;
+
+    $templateSalescart.querySelector('#totalTableUSD').textContent = (product.price*changeUSD)*product.qty
     $templateSalescart.querySelector(".btnPlus").dataset.id = product.id;
 
     $templateSalescart.querySelector(".btnMinus").dataset.id = product.id;
@@ -114,6 +116,7 @@ const addSalescart = () => {
 
   $items.appendChild($fragment);
   setFooter();
+  
 };
 
 
@@ -152,25 +155,22 @@ const setFooter = () => {
   });
 };
 
-
 const btnAumentarDisminuir = (e) => {
   //console.log(e.target);
   const buttonPlus = e.target.classList.contains("btnPlus");
   if (buttonPlus === true) {
-    
-const add = salesCart[e.target.dataset.id] ;
-add.qty++
-salesCart[e.target.dataset.id] = { ...add }
-addSalescart()
-}
-  
+    const add = salesCart[e.target.dataset.id];
+    add.qty++;
+    salesCart[e.target.dataset.id] = { ...add };
+    addSalescart();
+  }
 
   const buttonMinus = e.target.classList.contains("btnMinus");
   if (buttonMinus === true) {
     //console.log(e.target.dataset.id);
-    const sub = salesCart[e.target.dataset.id] ;
-sub.qty--
-salesCart[e.target.dataset.id] = { ...sub }
-addSalescart()
+    const sub = salesCart[e.target.dataset.id];
+    sub.qty--;
+    salesCart[e.target.dataset.id] = { ...sub };
+    addSalescart();
   }
 };
