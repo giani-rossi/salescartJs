@@ -8,6 +8,10 @@ window.addEventListener("DOMContentLoaded", () => {
   $items.addEventListener("click", (e) => {
     btnAumentarDisminuir(e);
   });
+
+
+  $('#title').innerHTML = 'hOla';
+
 });
 
 const $cards = document.getElementById("allCards");
@@ -24,16 +28,29 @@ const $footer = document.getElementById("footer");
 
 //TOMO LOS DATOS DE LA "BASE DE DATOS(JSON)"
 
+function fetchData(){
+$.ajax({
+  url: '/scripts/api.json',
+  dataType: 'json',
+  success: function(data) {
+   // console.log(data[0].price);
+    createCards(data);
+  }
+});
+}
+
+/*
 const fetchData = async () => {
   try {
     const response = await fetch("/scripts/api.json");
     const data = await response.json();
 
-    createCards(data);
+    
   } catch (error) {
     console.log(error);
   }
 };
+*/
 
 const createCards = (data) => {
   // console.log(data);
@@ -105,7 +122,7 @@ const addSalescart = () => {
     $templateSalescart.querySelector("#totalTable").textContent =
       product.qty * product.price;
 
-    $templateSalescart.querySelector('#totalTableUSD').textContent = (product.price*changeUSD)*product.qty
+    $templateSalescart.querySelector('#totalTableUSD').textContent = ((product.price*changeUSD)*product.qty).toFixed(2);
     $templateSalescart.querySelector(".btnPlus").dataset.id = product.id;
 
     $templateSalescart.querySelector(".btnMinus").dataset.id = product.id;
@@ -174,3 +191,18 @@ const btnAumentarDisminuir = (e) => {
     addSalescart();
   }
 };
+
+function bounce () {
+  let nombre = localStorage.getItem("nombre")
+  console.log(nombre);
+$('#title').text("Welcome " + nombre + '')
+.animate({top:40} , 1000)
+.animate({top:10} , 1000 , bounce);
+}
+bounce();
+
+
+$('button').click(function() {
+  alert(hola);
+  $(".btnBuy").css('background-color', 'red')
+});
