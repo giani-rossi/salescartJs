@@ -10,13 +10,9 @@ localStorage.setItem('email',email);
 
 })
 
-
-
-
 const value = localStorage.getItem('nombre')
 const value_email = localStorage.getItem('email')
 console.log(value);
-
 
 let info = []
 info.push(value)

@@ -9,9 +9,7 @@ window.addEventListener("DOMContentLoaded", () => {
     btnAumentarDisminuir(e);
   });
 
-
-  $('#title').innerHTML = 'hOla';
-
+  $("#title").innerHTML = "hOla";
 });
 
 const $cards = document.getElementById("allCards");
@@ -28,15 +26,15 @@ const $footer = document.getElementById("footer");
 
 //TOMO LOS DATOS DE LA "BASE DE DATOS(JSON)"
 
-function fetchData(){
-$.ajax({
-  url: '/scripts/api.json',
-  dataType: 'json',
-  success: function(data) {
-   // console.log(data[0].price);
-    createCards(data);
-  }
-});
+function fetchData() {
+  $.ajax({
+    url: "/scripts/api.json",
+    dataType: "json",
+    success: function (data) {
+      // console.log(data[0].price);
+      createCards(data);
+    },
+  });
 }
 
 /*
@@ -122,7 +120,11 @@ const addSalescart = () => {
     $templateSalescart.querySelector("#totalTable").textContent =
       product.qty * product.price;
 
-    $templateSalescart.querySelector('#totalTableUSD').textContent = ((product.price*changeUSD)*product.qty).toFixed(2);
+    $templateSalescart.querySelector("#totalTableUSD").textContent = (
+      product.price *
+      changeUSD *
+      product.qty
+    ).toFixed(2);
     $templateSalescart.querySelector(".btnPlus").dataset.id = product.id;
 
     $templateSalescart.querySelector(".btnMinus").dataset.id = product.id;
@@ -133,10 +135,7 @@ const addSalescart = () => {
 
   $items.appendChild($fragment);
   setFooter();
-  
 };
-
-
 
 const setFooter = () => {
   $footer.innerText = "";
@@ -155,14 +154,17 @@ const setFooter = () => {
     0
   );
 
-  const totalPriceUSD = Object.values(salesCart).reduce((acc , {qty,changeUSD,price}) => acc + price*changeUSD*qty, 0);
+  const totalPriceUSD = Object.values(salesCart).reduce(
+    (acc, { qty, price }) => acc + price * changeUSD * qty,
+    0
+  );
 
-      
   $templateFooter.querySelector("#totalQty").textContent = totalQty;
 
   $templateFooter.querySelector("#totalPrice").textContent = totalPrice;
 
-  $templateFooter.querySelector('#totalPriceUSD').textContent = totalPriceUSD;
+  $templateFooter.querySelector("#totalPriceUSD").textContent =
+    totalPriceUSD.toFixed(2);
 
   const clone = $templateFooter.cloneNode(true);
   $fragment.appendChild(clone);
@@ -198,17 +200,17 @@ const btnAumentarDisminuir = (e) => {
   }
 };
 
-function bounce () {
-  let nombre = localStorage.getItem("nombre")
-//  console.log(nombre);
-$('#title').text("Welcome " + nombre + '')
-.animate({top:40} , 1000)
-.animate({top:10} , 1000 , bounce);
+function bounce() {
+  let nombre = localStorage.getItem("nombre");
+  //  console.log(nombre);
+  $("#title")
+    .text("Welcome " + nombre + "")
+    .animate({ top: 40 }, 1000)
+    .animate({ top: 10 }, 1000, bounce);
 }
 bounce();
 
-
-$('button').click(function() {
+$("button").click(function () {
   alert(hola);
-  $(".btnBuy").css('background-color', 'red')
+  $(".btnBuy").css("background-color", "red");
 });
