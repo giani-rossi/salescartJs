@@ -8,9 +8,18 @@ localStorage.setItem('nombre',nombre);
 const email = $('#email').val();
 localStorage.setItem('email',email);
 
-let value = localStorage.getItem('nombre')
-console.log(value);
-
 })
 
+
+
+
+const value = localStorage.getItem('nombre')
+const value_email = localStorage.getItem('email')
+console.log(value);
+
+
+let info = []
+info.push(value)
+info.push(value_email)
+console.log(info);
 

@@ -154,9 +154,15 @@ const setFooter = () => {
     (acc, { qty, price }) => acc + qty * price,
     0
   );
+
+  const totalPriceUSD = Object.values(salesCart).reduce((acc , {qty,changeUSD,price}) => acc + price*changeUSD*qty, 0);
+
+      
   $templateFooter.querySelector("#totalQty").textContent = totalQty;
 
   $templateFooter.querySelector("#totalPrice").textContent = totalPrice;
+
+  $templateFooter.querySelector('#totalPriceUSD').textContent = totalPriceUSD;
 
   const clone = $templateFooter.cloneNode(true);
   $fragment.appendChild(clone);
@@ -194,7 +200,7 @@ const btnAumentarDisminuir = (e) => {
 
 function bounce () {
   let nombre = localStorage.getItem("nombre")
-  console.log(nombre);
+//  console.log(nombre);
 $('#title').text("Welcome " + nombre + '')
 .animate({top:40} , 1000)
 .animate({top:10} , 1000 , bounce);
