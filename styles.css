@@ -1,0 +1,279 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+img {
+  display: flex;
+  width: 100px;
+  left: 50%;
+  position: absolute;
+  margin-top: 50px;
+  border-radius: 10px;
+}
+body {
+  background-color: #c8f5ff;
+  background-image: linear-gradient(19deg, #21d4fd 0%, #b721ff 100%);
+  font-family: "Noto Sans", sans-serif;
+}
+
+html {
+  height: 1vh;
+}
+
+h4 {
+  width: 30%;
+
+  align-self: flex-start;
+  margin: 20px;
+  text-align: left;
+}
+h5 {
+  align-self: flex-start;
+  margin: 10px;
+}
+
+p {
+  left: 35%;
+  position: absolute;
+  transform: translateY(1800%);
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  text-align: -webkit-center;
+  align-items: center;
+}
+
+.card {
+  box-shadow: 0 15px 30px 1px rgb(29, 29, 29);
+  background-color: #efd4fc;
+
+  text-align: center;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 9em auto;
+  height: 350px;
+  width: 500px;
+}
+
+.card__image {
+  width: 15%;
+  height: auto;
+
+  /* position: absolute;
+  left: 50%;
+  transform: translateX(-15%); */
+}
+
+.btnBuy {
+  align-self: center;
+  width: 20%;
+  margin-top: 0px;
+  position: absolute;
+  border-radius: 5px;
+  transform: translateY(288px);
+}
+
+.table {
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+}
+
+th,
+td {
+  padding: 15px;
+  text-align: center;
+  font-family: "Noto Sans", sans-serif;
+}
+
+.tableCard {
+  box-shadow: 0 15px 30px 1px rgb(29, 29, 29);
+  background-color: #c8f5ff;
+
+  text-align: center;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 5em auto;
+  height: auto;
+  width: 75%;
+}
+
+#title {
+  font-size: 30px;
+  text-align: center;
+  width: 70%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-left: -25px;
+  box-shadow: 0 15px 30px 1px rgb(29, 29, 29);
+  background-color: #efd4fc;
+  border-radius: 10px;
+}
+
+#welcome {
+ 
+  font-size: 30px;
+  text-align: center;
+  width: 90%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-left: -25px;
+  box-shadow: 0 15px 30px 1px rgb(29, 29, 29);
+  background-color: #efd4fc;
+  border-radius: 10px;
+  position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    font-size: 45px;
+}
+
+#loginForm {
+  position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 65%;
+    display: flex;
+   
+}
+
+#btnIngresar {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 150%);
+  top: 100%;
+  box-shadow: 0 15px 30px 1px rgb(29, 29, 29);
+  background-color: #efd4fc;
+  border-radius: 10px;
+  position: absolute;
+  width: 50%;
+  height: 120%;
+  font-weight: bolder;
+  font-style: italic;
+  font-size: 15px;
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewh5ort" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+  <title> 🛒  h5S - Salescart 🛒  </title>
+  <link rel="stylesheet" href="./styles/styles.css">
+</head>
+<body>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+  <div id="title"></div>  
+
+      <div class="parent" id="allCards">
+        <template id="templateCard">
+
+          <div class="card">
+
+
+            <div class="card-body">
+              <h5></h5>
+              <h4></h4>
+              <p></p>
+
+              <img class="card__image" src="" alt="">
+              <button class="btnBuy" data-id="">Add Service</button>
+            </div>
+          </div>
+      </div>
+    
+    </template>
+    </div>
+
+
+    <!--templates generados para informacion interna-->
+
+    <template id="templateSalescart">
+      <tr>
+        <th scope="row" id="idTable">id</th>
+        <td id="productTable">Café</td>
+        <td id="qtyTable">1</td>
+  
+        <td>
+          <button class="btnPlus" data-id="">
+            +
+          </button>
+          <button class="btnMinus" data-id="">
+            -
+          </button>
+        </td>
+        <td id="totalTable"> $ 500</td>
+        <td id="totalTableUSD"> USD 500</td>
+      </tr>
+    </template>
+    <template id="templateFooter">
+      <th scope="row" colspan="2">Total Products</th>
+      <td id="totalQty">10</td>
+      <td>
+        <button class="btn btnDeleteAll btn-sm" id="salescartEmpty">
+          vaciar todo
+        </button>
+      </td>
+      <td id="totalPrice" class="font-weight-bold"> $ <span>5000</span></td>
+      <td id="totalPriceUSD" class="font-weight-bold"> $ <span>5000</span></td>
+    </template>
+
+
+
+    <section id="tables">
+    
+      <table class="table tableCard">
+
+        <thead >
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Item</th>
+            <th scope="col">Qty in Hours</th>
+            <th scope="col">Add/Del</th>
+            <th scope="col">Total</th>
+            <th scope="col" id="USD">Total in USD</th>
+          </tr>
+        </thead>
+
+        <tbody id="items"></tbody>
+
+        <tfoot>
+          <tr id="footer">
+            <th scope="row" colspan="5">Salescart Empty - Start adding the services you need 🛠!</th>
+          </tr>
+        </tfoot>
+      </table>
+
+    </section>
+
+
+<div id="twitter" ></div>
+
+
+
+    <script src="./scripts/app.js"></script>
+    <script src="./scripts/apiCurrency.js"></script>
+    <script src="./scripts/twitter.js" ></script>
+    <script src="./scripts/login.js"></script>
+
+
+</body>
+
+</html>
