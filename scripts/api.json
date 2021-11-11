@@ -1,0 +1,44 @@
+[
+  {
+    "price": "500",
+    "id": 1,
+    "title": "PLUMBING",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, aliquam quia? Iusto doloribus eius illum optio rem ducimus quos sit, libero",
+    "img": "https://randomuser.me/api/portraits/men/89.jpg"
+  },
+  {
+    "price": "900",
+    "id": 2,
+    "title": "PAINTEER",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, aliquam quia? Iusto doloribus eius illum optio rem ducimus quos sit, libero",
+    "img": "https://randomuser.me/api/portraits/women/70.jpg"
+  },
+  {
+    "price": "100",
+    "id": 3,
+    "title": "CARPENTER",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, aliquam quia? Iusto doloribus eius illum optio rem ducimus quos sit, libero",
+    "img": "https://randomuser.me/api/portraits/men/11.jpg"
+  },
+  {
+    "price": "500",
+    "id": 4,
+    "title": "ELECTRICIAN",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, aliquam quia? Iusto doloribus eius illum optio rem ducimus quos sit, libero",
+    "img": "https://randomuser.me/api/portraits/women/20.jpg"
+  },
+  {
+    "price": "190",
+    "id": 5,
+    "title": "INTERIOR DESIGN",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, aliquam quia? Iusto doloribus eius illum optio rem ducimus quos sit, libero",
+    "img": "https://randomuser.me/api/portraits/men/90.jpg"
+  },
+  {
+    "price": "150",
+    "id": 6,
+    "title": "HOUSEKEEPING",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, aliquam quia? Iusto doloribus eius illum optio rem ducimus quos sit, libero",
+    "img": "https://randomuser.me/api/portraits/women/98.jpg"
+  }
+]
