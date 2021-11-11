@@ -204,7 +204,8 @@ function bounce() {
   let nombre = localStorage.getItem("nombre");
   //  console.log(nombre);
   $("#title")
-    .text("Welcome " + nombre + "")
+    .text("Welcome ")
+  // + nombre + ""
     .animate({ top: 40 }, 1000)
     .animate({ top: 10 }, 1000, bounce);
 }
